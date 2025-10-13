@@ -28,20 +28,22 @@ const Index = () => {
             <TabsTrigger value="vwo" className="text-base">VWO</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="vmbo" className="mt-0">
+          <TabsContent value="vmbo" id="vmbo" className="mt-0">
             <VMBOTab />
           </TabsContent>
 
-          <TabsContent value="havo" className="mt-0">
+          <TabsContent value="havo" id="havo" className="mt-0">
             <HAVOTab />
           </TabsContent>
 
-          <TabsContent value="vwo" className="mt-0">
+          <TabsContent value="vwo" id="vwo" className="mt-0">
             <VWOTab />
           </TabsContent>
         </Tabs>
 
-        <AboutSection />
+        <div id="over">
+          <AboutSection />
+        </div>
       </main>
 
       <footer className="bg-muted mt-16 py-8">
