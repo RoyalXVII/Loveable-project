@@ -43,6 +43,16 @@ export const Header = () => {
 
           {/* Right side buttons */}
           <div className="flex items-center gap-3">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="hidden md:flex"
+              asChild
+            >
+              <a href="https://www.qompas.nl/aanmelden/" target="_blank" rel="noopener noreferrer">
+                Qompas
+              </a>
+            </Button>
             <Button variant="outline" size="sm" className="hidden md:flex">
               Contact
             </Button>
@@ -77,6 +87,16 @@ export const Header = () => {
                 {item.label}
               </a>
             ))}
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="w-full mt-2"
+              asChild
+            >
+              <a href="https://www.qompas.nl/aanmelden/" target="_blank" rel="noopener noreferrer">
+                Qompas
+              </a>
+            </Button>
             <Button variant="outline" size="sm" className="w-full mt-2">
               Contact
             </Button>
