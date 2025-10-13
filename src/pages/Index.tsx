@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { VMBOTab } from "@/components/VMBOTab";
 import { HAVOTab } from "@/components/HAVOTab";
 import { VWOTab } from "@/components/VWOTab";
+import { AboutSection } from "@/components/AboutSection";
 
 const Index = () => {
   return (
@@ -39,6 +40,8 @@ const Index = () => {
             <VWOTab />
           </TabsContent>
         </Tabs>
+
+        <AboutSection />
       </main>
 
       <footer className="bg-muted mt-16 py-8">
