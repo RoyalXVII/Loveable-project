@@ -1,24 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone } from "lucide-react";
-import lenyImage from "@/assets/decanen/leny-decaan.jpg";
-import ireneImage from "@/assets/decanen/irene-decaan.jpg";
-
-interface DecaanCardProps {
-  name: string;
-  image: string;
-}
-
-const DecaanCard = ({ name, image }: DecaanCardProps) => (
-  <Card className="overflow-hidden hover:shadow-[var(--shadow-soft)] transition-all duration-300">
-    <CardContent className="p-8 flex flex-col items-center">
-      <div className="w-48 h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
-      </div>
-      <h3 className="text-2xl font-bold mb-1">{name}</h3>
-      <p className="text-lg text-muted-foreground">Decaan Griftland College</p>
-    </CardContent>
-  </Card>
-);
 
 export const AboutSection = () => {
   return (
@@ -31,11 +12,6 @@ export const AboutSection = () => {
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Ons decanaat staat voor je klaar om je te begeleiden bij jouw studiekeuze
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-2xl mx-auto">
-          <DecaanCard name="Leny" image={lenyImage} />
-          <DecaanCard name="Irene" image={ireneImage} />
         </div>
 
         <Card className="max-w-4xl mx-auto">
