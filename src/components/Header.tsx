@@ -1,5 +1,11 @@
-import { GraduationCap, Search } from "lucide-react";
+import { GraduationCap, Search, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 
 export const Header = () => {
@@ -53,9 +59,49 @@ export const Header = () => {
                 Qompas
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="hidden md:flex">
-              Contact
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="hidden md:flex gap-2">
+                  <Download className="h-4 w-4" />
+                  Downloads
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-background z-50" align="end">
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-mavo-nieuw-sep25.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-blue-500">🔵</span>
+                    <span>Mavo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-havo-nieuw-sep25-.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-yellow-500">🟡</span>
+                    <span>Havo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-vwo-nieuw-sep25.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-red-500">🔴</span>
+                    <span>Vwo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button className="p-2 hover:bg-muted rounded-full transition-colors">
               <Search className="h-5 w-5 text-foreground" />
             </button>
@@ -97,9 +143,49 @@ export const Header = () => {
                 Qompas
               </a>
             </Button>
-            <Button variant="outline" size="sm" className="w-full mt-2">
-              Contact
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="w-full mt-2 gap-2">
+                  <Download className="h-4 w-4" />
+                  Downloads
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-background z-50" align="end">
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-mavo-nieuw-sep25.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-blue-500">🔵</span>
+                    <span>Mavo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-havo-nieuw-sep25-.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-yellow-500">🟡</span>
+                    <span>Havo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="https://griftland.nl/wp-content/uploads/2025/09/LOB-Verlofaanvraagformulier-vwo-nieuw-sep25.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <span className="text-red-500">🔴</span>
+                    <span>Vwo LOB-verlofaanvraagformulier</span>
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         )}
       </div>
