@@ -2,8 +2,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProfileCard } from "./ProfileCard";
 import { OpenDayCard } from "./OpenDayCard";
 import { Briefcase, BarChart, FlaskConical, Atom } from "lucide-react";
+import { StudentAvatar } from "./StudentAvatar";
+import { StudentChat } from "./StudentChat";
+import { useState } from "react";
 
 export const VWOTab = () => {
+  const [chatOpen, setChatOpen] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState<{
+    name: string;
+    profile: "cm" | "em" | "ng" | "nt";
+    gender: "male" | "female";
+  } | null>(null);
+
+  const openChat = (name: string, profile: "cm" | "em" | "ng" | "nt", gender: "male" | "female") => {
+    setSelectedStudent({ name, profile, gender });
+    setChatOpen(true);
+  };
+
   const profiles = {
     cm: {
       title: "Cultuur & Maatschappij",
@@ -104,15 +119,83 @@ export const VWOTab = () => {
 
           <TabsContent value="cm">
             <ProfileCard {...profiles.cm} />
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold mb-4">Praat met C&M studenten</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <StudentAvatar
+                  gender="male"
+                  name="Tom"
+                  profile="cm"
+                  onClick={() => openChat("Tom", "cm", "male")}
+                />
+                <StudentAvatar
+                  gender="female"
+                  name="Lisa"
+                  profile="cm"
+                  onClick={() => openChat("Lisa", "cm", "female")}
+                />
+              </div>
+            </div>
           </TabsContent>
           <TabsContent value="em">
             <ProfileCard {...profiles.em} />
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold mb-4">Praat met E&M studenten</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <StudentAvatar
+                  gender="male"
+                  name="Bas"
+                  profile="em"
+                  onClick={() => openChat("Bas", "em", "male")}
+                />
+                <StudentAvatar
+                  gender="female"
+                  name="Sophie"
+                  profile="em"
+                  onClick={() => openChat("Sophie", "em", "female")}
+                />
+              </div>
+            </div>
           </TabsContent>
           <TabsContent value="ng">
             <ProfileCard {...profiles.ng} />
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold mb-4">Praat met N&G studenten</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <StudentAvatar
+                  gender="male"
+                  name="Daan"
+                  profile="ng"
+                  onClick={() => openChat("Daan", "ng", "male")}
+                />
+                <StudentAvatar
+                  gender="female"
+                  name="Emma"
+                  profile="ng"
+                  onClick={() => openChat("Emma", "ng", "female")}
+                />
+              </div>
+            </div>
           </TabsContent>
           <TabsContent value="nt">
             <ProfileCard {...profiles.nt} />
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold mb-4">Praat met N&T studenten</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <StudentAvatar
+                  gender="male"
+                  name="Tim"
+                  profile="nt"
+                  onClick={() => openChat("Tim", "nt", "male")}
+                />
+                <StudentAvatar
+                  gender="female"
+                  name="Sara"
+                  profile="nt"
+                  onClick={() => openChat("Sara", "nt", "female")}
+                />
+              </div>
+            </div>
           </TabsContent>
         </Tabs>
       </section>
@@ -128,6 +211,15 @@ export const VWOTab = () => {
           ))}
         </div>
       </section>
+
+      {chatOpen && selectedStudent && (
+        <StudentChat
+          studentName={selectedStudent.name}
+          profile={selectedStudent.profile}
+          gender={selectedStudent.gender}
+          onClose={() => setChatOpen(false)}
+        />
+      )}
     </div>
   );
 };
