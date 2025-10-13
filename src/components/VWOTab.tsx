@@ -37,52 +37,52 @@ export const VWOTab = () => {
 
   const universityOpenDays = [
     {
-      institution: "Universiteit Utrecht",
-      type: "Universiteit" as const,
-      date: "1 maart 2025",
-      location: "Utrecht",
-      description: "Open dag met informatie over alle bachelor opleidingen en het studentenleven.",
-      link: "https://www.uu.nl"
-    },
-    {
-      institution: "Universiteit van Amsterdam",
-      type: "Universiteit" as const,
-      date: "8 maart 2025",
-      location: "Amsterdam",
-      description: "Ontdek de UvA en haar brede aanbod aan wetenschappelijke opleidingen.",
-      link: "https://www.uva.nl"
-    },
-    {
-      institution: "VU Amsterdam",
-      type: "Universiteit" as const,
-      date: "15 maart 2025",
-      location: "Amsterdam",
-      description: "Kennismaken met de VU en haar interdisciplinaire aanpak.",
-      link: "https://www.vu.nl"
-    },
-    {
       institution: "Universiteit Twente",
       type: "Universiteit" as const,
-      date: "22 maart 2025",
+      date: "10-11 oktober 2025",
       location: "Enschede",
-      description: "Tech-universiteit met focus op innovatie en ondernemerschap.",
-      link: "https://www.utwente.nl"
+      description: "Tech-universiteit met focus op innovatie en ondernemerschap. Ontdek het studentenleven op de campus.",
+      link: "https://www.utwente.nl/onderwijs/studiekeuzekalender/bachelor-open-dagen/"
     },
     {
       institution: "TU Delft",
       type: "Universiteit" as const,
-      date: "29 maart 2025",
+      date: "17 en 20 oktober 2025",
       location: "Delft",
-      description: "Topuniversiteit voor techniek en toegepaste wetenschappen.",
-      link: "https://www.tudelft.nl"
+      description: "Bachelor Open Campus Days - topuniversiteit voor techniek en toegepaste wetenschappen.",
+      link: "https://www.tudelft.nl/en/education/study-programme-orientation/preparing-for-a-bachelor/bsc-online-open-days"
+    },
+    {
+      institution: "Universiteit van Amsterdam",
+      type: "Universiteit" as const,
+      date: "27-31 oktober 2025",
+      location: "Amsterdam",
+      description: "UvA Bachelorweek met online informatierondes en Open Campus Day. Ontdek het brede aanbod aan wetenschappelijke opleidingen.",
+      link: "https://www.uva.nl/onderwijs/bachelor/open-dagen/uva-bachelorweek/uva-bachelorweek.html"
+    },
+    {
+      institution: "VU Amsterdam",
+      type: "Universiteit" as const,
+      date: "7-8 november 2025",
+      location: "Amsterdam",
+      description: "VU Bachelor's Days - kennismaken met de VU en haar interdisciplinaire aanpak.",
+      link: "https://vu.nl/en/education/more-about/vu-bachelor-s-day"
+    },
+    {
+      institution: "Universiteit Utrecht",
+      type: "Universiteit" as const,
+      date: "22 november 2025",
+      location: "Utrecht",
+      description: "Bachelor Open Dag met informatie over alle bacheloropleidingen en de sfeer van de universiteit.",
+      link: "https://www.uu.nl/bachelors/general-information/how-to-choose-a-degree/bachelors-open-days"
     },
     {
       institution: "Radboud Universiteit",
       type: "Universiteit" as const,
-      date: "5 april 2025",
+      date: "13 november 2025",
       location: "Nijmegen",
-      description: "Persoonlijke universiteit met aandacht voor student en samenleving.",
-      link: "https://www.ru.nl"
+      description: "Open Dag on campus en online - persoonlijke universiteit met aandacht voor student en samenleving.",
+      link: "https://www.ru.nl/over-ons/agenda"
     }
   ];
 
