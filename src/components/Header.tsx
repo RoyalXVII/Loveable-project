@@ -1,16 +1,87 @@
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "Home", href: "#" },
+    { label: "VMBO", href: "#vmbo" },
+    { label: "HAVO", href: "#havo" },
+    { label: "VWO", href: "#vwo" },
+    { label: "Over ons", href: "#over" },
+  ];
+
   return (
-    <header className="bg-[var(--gradient-hero)] text-primary-foreground py-6 px-4 shadow-[var(--shadow-soft)]">
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <GraduationCap className="h-8 w-8" />
-          <div>
-            <h1 className="text-2xl font-bold">Studiekeuze Gids</h1>
-            <p className="text-sm opacity-90">Jouw school, jouw toekomst</p>
+    <header className="bg-background border-b border-border sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="bg-primary rounded-full p-2">
+              <GraduationCap className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-foreground leading-tight">Studiekeuze Gids</h1>
+              <p className="text-xs text-muted-foreground">Jouw school, jouw toekomst</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right side buttons */}
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" className="hidden md:flex">
+              Contact
+            </Button>
+            <button className="p-2 hover:bg-muted rounded-full transition-colors">
+              <Search className="h-5 w-5 text-foreground" />
+            </button>
+            
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2 hover:bg-muted rounded transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <div className="w-5 h-4 flex flex-col justify-between">
+                <span className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              </div>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="md:hidden pb-4 space-y-2 border-t border-border pt-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <Button variant="outline" size="sm" className="w-full mt-2">
+              Contact
+            </Button>
+          </nav>
+        )}
       </div>
     </header>
   );
