@@ -1,8 +1,27 @@
 import { ProfileCard } from "./ProfileCard";
 import { OpenDayCard } from "./OpenDayCard";
 import { Wrench, Users, Heart, Laptop } from "lucide-react";
+import { StudentAvatar } from "./StudentAvatar";
+import { StudentChat } from "./StudentChat";
+import { useState } from "react";
+import mikeImage from "@/assets/students/mike-tech-male.jpg";
+import annaImage from "@/assets/students/anna-care-female.jpg";
+import kevinImage from "@/assets/students/kevin-business-male.jpg";
+import juliaImage from "@/assets/students/julia-ict-female.jpg";
 
 export const VMBOTab = () => {
+  const [chatOpen, setChatOpen] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState<{
+    name: string;
+    profile: string;
+    gender: "male" | "female";
+  } | null>(null);
+
+  const openChat = (name: string, profile: string, gender: "male" | "female") => {
+    setSelectedStudent({ name, profile, gender });
+    setChatOpen(true);
+  };
+
   const mboSectors = [
     {
       title: "Techniek",
@@ -91,6 +110,43 @@ export const VMBOTab = () => {
         </div>
       </section>
 
+      <section className="mt-12">
+        <h2 className="text-3xl font-bold mb-4 text-secondary text-center">Chat met MBO studenten</h2>
+        <p className="text-muted-foreground mb-6 text-center max-w-2xl mx-auto">
+          Praat met echte MBO studenten over hun studie, dagelijkse leven en toekomstplannen!
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StudentAvatar
+            gender="male"
+            name="Mike"
+            profile="Techniek"
+            image={mikeImage}
+            onClick={() => openChat("Mike", "tech", "male")}
+          />
+          <StudentAvatar
+            gender="female"
+            name="Anna"
+            profile="Zorg & Welzijn"
+            image={annaImage}
+            onClick={() => openChat("Anna", "care", "female")}
+          />
+          <StudentAvatar
+            gender="male"
+            name="Kevin"
+            profile="Economie"
+            image={kevinImage}
+            onClick={() => openChat("Kevin", "business", "male")}
+          />
+          <StudentAvatar
+            gender="female"
+            name="Julia"
+            profile="ICT & Media"
+            image={juliaImage}
+            onClick={() => openChat("Julia", "ict", "female")}
+          />
+        </div>
+      </section>
+
       <section>
         <h2 className="text-3xl font-bold mb-4 text-secondary">Open Dagen MBO</h2>
         <p className="text-muted-foreground mb-6">
@@ -102,6 +158,15 @@ export const VMBOTab = () => {
           ))}
         </div>
       </section>
+
+      {chatOpen && selectedStudent && (
+        <StudentChat
+          studentName={selectedStudent.name}
+          profile={selectedStudent.profile as any}
+          gender={selectedStudent.gender}
+          onClose={() => setChatOpen(false)}
+        />
+      )}
     </div>
   );
 };

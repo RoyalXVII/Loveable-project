@@ -5,6 +5,14 @@ import { Briefcase, BarChart, FlaskConical, Atom } from "lucide-react";
 import { StudentAvatar } from "./StudentAvatar";
 import { StudentChat } from "./StudentChat";
 import { useState } from "react";
+import tomImage from "@/assets/students/tom-cm-male.jpg";
+import lisaImage from "@/assets/students/lisa-cm-female.jpg";
+import basImage from "@/assets/students/bas-em-male.jpg";
+import sophieImage from "@/assets/students/sophie-em-female.jpg";
+import daanImage from "@/assets/students/daan-ng-male.jpg";
+import emmaImage from "@/assets/students/emma-ng-female.jpg";
+import timImage from "@/assets/students/tim-nt-male.jpg";
+import saraImage from "@/assets/students/sara-nt-female.jpg";
 
 export const VWOTab = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -120,18 +128,20 @@ export const VWOTab = () => {
           <TabsContent value="cm">
             <ProfileCard {...profiles.cm} />
             <div className="mt-8">
-              <h3 className="text-2xl font-bold mb-4">Praat met C&M studenten</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <h3 className="text-2xl font-bold mb-4 text-center">Chat met C&M studenten</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <StudentAvatar
                   gender="male"
                   name="Tom"
                   profile="cm"
+                  image={tomImage}
                   onClick={() => openChat("Tom", "cm", "male")}
                 />
                 <StudentAvatar
                   gender="female"
                   name="Lisa"
                   profile="cm"
+                  image={lisaImage}
                   onClick={() => openChat("Lisa", "cm", "female")}
                 />
               </div>
@@ -140,18 +150,20 @@ export const VWOTab = () => {
           <TabsContent value="em">
             <ProfileCard {...profiles.em} />
             <div className="mt-8">
-              <h3 className="text-2xl font-bold mb-4">Praat met E&M studenten</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <h3 className="text-2xl font-bold mb-4 text-center">Chat met E&M studenten</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <StudentAvatar
                   gender="male"
                   name="Bas"
                   profile="em"
+                  image={basImage}
                   onClick={() => openChat("Bas", "em", "male")}
                 />
                 <StudentAvatar
                   gender="female"
                   name="Sophie"
                   profile="em"
+                  image={sophieImage}
                   onClick={() => openChat("Sophie", "em", "female")}
                 />
               </div>
@@ -160,18 +172,20 @@ export const VWOTab = () => {
           <TabsContent value="ng">
             <ProfileCard {...profiles.ng} />
             <div className="mt-8">
-              <h3 className="text-2xl font-bold mb-4">Praat met N&G studenten</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <h3 className="text-2xl font-bold mb-4 text-center">Chat met N&G studenten</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <StudentAvatar
                   gender="male"
                   name="Daan"
                   profile="ng"
+                  image={daanImage}
                   onClick={() => openChat("Daan", "ng", "male")}
                 />
                 <StudentAvatar
                   gender="female"
                   name="Emma"
                   profile="ng"
+                  image={emmaImage}
                   onClick={() => openChat("Emma", "ng", "female")}
                 />
               </div>
@@ -180,18 +194,20 @@ export const VWOTab = () => {
           <TabsContent value="nt">
             <ProfileCard {...profiles.nt} />
             <div className="mt-8">
-              <h3 className="text-2xl font-bold mb-4">Praat met N&T studenten</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <h3 className="text-2xl font-bold mb-4 text-center">Chat met N&T studenten</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <StudentAvatar
                   gender="male"
                   name="Tim"
                   profile="nt"
+                  image={timImage}
                   onClick={() => openChat("Tim", "nt", "male")}
                 />
                 <StudentAvatar
                   gender="female"
                   name="Sara"
                   profile="nt"
+                  image={saraImage}
                   onClick={() => openChat("Sara", "nt", "female")}
                 />
               </div>

@@ -1,4 +1,4 @@
-import { User, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -6,37 +6,33 @@ interface StudentAvatarProps {
   gender: "male" | "female";
   name: string;
   profile: string;
+  image: string;
   onClick: () => void;
 }
 
-export const StudentAvatar = ({ gender, name, profile, onClick }: StudentAvatarProps) => {
-  const colors = {
-    cm: "bg-gradient-to-br from-purple-500 to-pink-500",
-    em: "bg-gradient-to-br from-blue-500 to-cyan-500",
-    ng: "bg-gradient-to-br from-green-500 to-emerald-500",
-    nt: "bg-gradient-to-br from-orange-500 to-red-500"
-  };
-
-  const color = colors[profile as keyof typeof colors] || colors.cm;
-
+export const StudentAvatar = ({ gender, name, profile, image, onClick }: StudentAvatarProps) => {
   return (
     <Card 
-      className="cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+      className="cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group"
       onClick={onClick}
     >
-      <CardHeader className="text-center">
-        <div className={`w-24 h-24 ${color} rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg`}>
-          <User className="h-12 w-12 text-white" />
+      <CardHeader className="text-center pb-3">
+        <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-3 shadow-lg ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all">
+          <img 
+            src={image} 
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
         </div>
-        <CardTitle className="text-lg">{name}</CardTitle>
-        <CardDescription>
-          {gender === "male" ? "Student" : "Studente"} • Klik om te chatten
+        <CardTitle className="text-xl">{name}</CardTitle>
+        <CardDescription className="text-sm">
+          {gender === "male" ? "Student" : "Studente"} • {profile.toUpperCase()}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <p className="text-sm text-center text-muted-foreground">
-          Chat met {name} over het studentenleven, kosten, en de opleiding!
-        </p>
+      <CardContent className="pt-0">
+        <Button variant="outline" className="w-full" size="sm">
+          Start chat
+        </Button>
       </CardContent>
     </Card>
   );
