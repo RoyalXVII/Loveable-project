@@ -10,19 +10,19 @@ interface DecaanCardProps {
 
 const DecaanCard = ({ name, image }: DecaanCardProps) => (
   <Card className="overflow-hidden hover:shadow-[var(--shadow-soft)] transition-all duration-300">
-    <CardContent className="p-6 flex flex-col items-center">
-      <div className="w-32 h-32 rounded-full overflow-hidden mb-4 shadow-lg">
+    <CardContent className="p-8 flex flex-col items-center">
+      <div className="w-48 h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
         <img src={image} alt={name} className="w-full h-full object-cover" />
       </div>
-      <h3 className="text-xl font-semibold mb-1">{name}</h3>
-      <p className="text-sm text-muted-foreground">Decaan</p>
+      <h3 className="text-2xl font-bold mb-1">{name}</h3>
+      <p className="text-lg text-muted-foreground">Decaan Griftland College</p>
     </CardContent>
   </Card>
 );
 
 export const AboutSection = () => {
   return (
-    <section className="py-16 bg-muted/30">
+    <section id="over" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 bg-[var(--gradient-hero)] bg-clip-text text-transparent">
