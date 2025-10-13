@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProfileCard } from "./ProfileCard";
 import { OpenDayCard } from "./OpenDayCard";
-import { Briefcase, BarChart, FlaskConical, Atom } from "lucide-react";
+import { Briefcase, BarChart, FlaskConical, Atom, Download } from "lucide-react";
 import { StudentAvatar } from "./StudentAvatar";
 import { StudentChat } from "./StudentChat";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import tomImage from "@/assets/students/tom-cm-male.jpg";
 import lisaImage from "@/assets/students/lisa-cm-female.jpg";
 import basImage from "@/assets/students/bas-em-male.jpg";
@@ -218,6 +219,19 @@ export const HAVOTab = () => {
             <OpenDayCard key={index} {...openDay} />
           ))}
         </div>
+      </section>
+
+      <section className="mt-12 bg-muted/30 p-8 rounded-lg text-center">
+        <h2 className="text-2xl font-bold mb-4">📄 LOB-verlofaanvraagformulier</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          Download hier het formulier om verlof aan te vragen voor open dagen en meeloopdagen.
+        </p>
+        <Button asChild size="lg" className="gap-2">
+          <a href="/downloads/LOB-Verlofaanvraagformulier-havo.docx" download>
+            <Download className="h-5 w-5" />
+            🟡 Download HAVO formulier
+          </a>
+        </Button>
       </section>
 
       {chatOpen && selectedStudent && (

@@ -1,9 +1,10 @@
 import { ProfileCard } from "./ProfileCard";
 import { OpenDayCard } from "./OpenDayCard";
-import { Wrench, Users, Heart, Laptop } from "lucide-react";
+import { Wrench, Users, Heart, Laptop, Download } from "lucide-react";
 import { StudentAvatar } from "./StudentAvatar";
 import { StudentChat } from "./StudentChat";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import mikeImage from "@/assets/students/mike-tech-male.jpg";
 import annaImage from "@/assets/students/anna-care-female.jpg";
 import kevinImage from "@/assets/students/kevin-business-male.jpg";
@@ -182,6 +183,19 @@ export const VMBOTab = () => {
             <OpenDayCard key={index} {...openDay} />
           ))}
         </div>
+      </section>
+
+      <section className="mt-12 bg-muted/30 p-8 rounded-lg text-center">
+        <h2 className="text-2xl font-bold mb-4">📄 LOB-verlofaanvraagformulier</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          Download hier het formulier om verlof aan te vragen voor open dagen en meeloopdagen.
+        </p>
+        <Button asChild size="lg" className="gap-2">
+          <a href="/downloads/LOB-Verlofaanvraagformulier-mavo.docx" download>
+            <Download className="h-5 w-5" />
+            🔵 Download VMBO/MAVO formulier
+          </a>
+        </Button>
       </section>
 
       {chatOpen && selectedStudent && (
