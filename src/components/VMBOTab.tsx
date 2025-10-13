@@ -8,6 +8,8 @@ import mikeImage from "@/assets/students/mike-tech-male.jpg";
 import annaImage from "@/assets/students/anna-care-female.jpg";
 import kevinImage from "@/assets/students/kevin-business-male.jpg";
 import juliaImage from "@/assets/students/julia-ict-female.jpg";
+import lenyImage from "@/assets/decanen/leny-decaan.jpg";
+import ireneImage from "@/assets/decanen/irene-decaan.jpg";
 
 export const VMBOTab = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -107,6 +109,29 @@ export const VMBOTab = () => {
           {mboSectors.map((sector, index) => (
             <ProfileCard key={index} {...sector} />
           ))}
+        </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-3xl font-bold mb-4 text-secondary text-center">Praat met onze decanen</h2>
+        <p className="text-muted-foreground mb-6 text-center max-w-2xl mx-auto">
+          Heb je vragen over je studiekeuze? Chat met Leny of Irene voor persoonlijk advies!
+        </p>
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+          <StudentAvatar
+            gender="female"
+            name="Leny"
+            profile="Decaan"
+            image={lenyImage}
+            onClick={() => openChat("Leny", "decaan", "female")}
+          />
+          <StudentAvatar
+            gender="female"
+            name="Irene"
+            profile="Decaan"
+            image={ireneImage}
+            onClick={() => openChat("Irene", "decaan", "female")}
+          />
         </div>
       </section>
 
