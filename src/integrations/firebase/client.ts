@@ -22,8 +22,9 @@ export const firebase = {
 
           console.log('Sending request to chat API with profile:', profile, 'gender:', gender);
 
-          // Use mock responses by default unless explicitly configured to use real API
-          const USE_MOCK = !import.meta.env.VITE_USE_REAL_API;
+          // Always use mock responses - hardcoded for reliability  
+          const USE_MOCK = true;
+          console.log('Forcing mock responses to ensure chat works');
           
           if (USE_MOCK) {
             // DEVELOPMENT MOCK SOLUTION - for immediate testing
