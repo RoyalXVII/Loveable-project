@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { firebase } from "@/integrations/firebase/client";
 
 interface Message {
   role: "user" | "assistant";
@@ -47,7 +47,7 @@ export const StudentChat = ({ studentName, profile, gender, onClose }: StudentCh
     setIsLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('student-chat', {
+      const { data, error } = await firebase.functions.invoke('student-chat', {
         body: {
           messages: [...messages, userMessage],
           profile,
