@@ -22,8 +22,8 @@ export const firebase = {
 
           console.log('Sending request to chat API with profile:', profile, 'gender:', gender);
 
-          // Check if we're in development mode with mock responses
-          const USE_MOCK = import.meta.env.DEV && !import.meta.env.VITE_USE_REAL_API;
+          // Use mock responses by default unless explicitly configured to use real API
+          const USE_MOCK = !import.meta.env.VITE_USE_REAL_API;
           
           if (USE_MOCK) {
             // DEVELOPMENT MOCK SOLUTION - for immediate testing
